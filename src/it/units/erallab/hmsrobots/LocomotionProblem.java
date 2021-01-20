@@ -57,10 +57,11 @@ public class LocomotionProblem  implements Problem<Robot, Double> {
             Settings settings = new Settings();
             settings.setStepFrequency(dT);
 
-            Locomotion locomotion = new Locomotion(finalT, groundProfiles[0], localMetrics, settings, null);
+            Locomotion locomotion = new Locomotion(finalT, groundProfiles[0], localMetrics, settings,null);
             List<Double> metricValues = locomotion.apply(robot, null);
 
             for (int j = 0; j < metricValues.size(); j++) {
+
                 metricValues.set(j, metricValues.get(j) * (localMetrics.get(j).isToMinimize() ? 1d : (-1d)));
 
             }
